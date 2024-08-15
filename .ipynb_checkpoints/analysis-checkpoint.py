@@ -23,3 +23,17 @@ def LoadData(data_dir, labels_list_str, img_size = 150):
                 except Exception as e:
                     print(e)
     return np.array(images), np.array(labels)
+
+def MetricsCalc(y_pred, y_test):
+    """Takes 1D y_pred, y_test
+    Returns: (precision, recall, f1_score) as tuple"""
+
+    true_pos = sum((y_test == 1) & (y_pred == 1))
+    true_neg = sum((y_test == 0) & (y_pred == 0))
+    false_pos = sum((y_test == 0) & (y_pred == 1))
+    false_neg = sum((y_test == 1) & (y_pred == 0))
+    
+    precision = true_pos/(true_pos + false_pos)
+    recall = true_pos/(true_pos + false_neg)
+    f1 = 2*(precision*recall)/(precision+recall)
+    return (precision, recall, f1)
