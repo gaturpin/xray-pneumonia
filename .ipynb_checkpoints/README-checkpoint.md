@@ -22,4 +22,4 @@ Image size: 150x150
 - 200 epochs
 
 ### CNN2:  
-- Equivalent to CNN1 with BatchNormalization after each Conv2D layer  
+- Equivalent to CNN1 with BatchNormalization after each Conv2D layer
